@@ -8,13 +8,14 @@ public class TvShow {
     @NotNull
     @Min(1)
     private long id;
-    @NotNull
+    @NotNull(message="cant be null")
     @Size(min=3, max=20)
     private String name;
     @NotNull
     @Size(min=3, max=20)
     private String type;
-    @NotNull@Size(min=10, max=30)
+    @NotNull
+    @Size(min=10, max=30,message="you messed up")
     private String description;
 
     public long getId() {

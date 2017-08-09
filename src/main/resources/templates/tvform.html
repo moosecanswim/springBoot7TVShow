@@ -1,31 +1,105 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head lang="en">
-        <meta charset="UTF-8"/>
-        <title>TV Form</title>
-    </head>
-    <body>
-        <form action="#"
-              th:action="@{/tvform}"
-              th:object="${tvshow}"
-              method="post">
+<html lang="en" xmlns:th=www.thymeleaf.org">
 
-            Id:<input type="number" th:field="*{id}"/>
-                <span th:if="${#fields.hasErrors('id')}"
-                th:errors="*{id}"></span><br />
-            Name:<input type="text" th:field="*{name}" />
-                <span th:if="${#fields.hasErrors('name')}"
-                      th:errors="*{name}"></span><br />
-            Type:<input type="text" th:field="*{type}" />
-            <span th:if="${#fields.hasErrors('type')}"
-                  th:errors="*{type}"></span><br />
-            Description:<textarea rows="3" th:field="*{description}" />
-            <span th:if="${#fields.hasErrors('description')}"
-                  th:errors="*{description}"></span>
-            <br />
-            <input type="submit" value="Submit" />
-        </form>
+<head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    </body>
+    <title>TV Form-stylish </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="css/additionalcss.css" rel="stylesheet">
+    <link href="additionalCSS.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+            </li>
+            <li>
+                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+            </li>
+            <li>
+                <a href="#about" onclick=$("#menu-close").click();>About</a>
+            </li>
+            <li>
+                <a href="#services" onclick=$("#menu-close").click();>Services</a>
+            </li>
+            <li>
+                <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+
+            <h1>New Show</h1>
+            <h3>Enter your TV show here</h3>
+            <div>
+                <br>
+                    <div class="container">
+                    <!--here is where to insert the form or confirmation-->
+                    <form action="#"
+                          th:action="@{/tvform}"
+                          th:object="${tvshow}"
+                          method="post">
+
+                        Id:<input type="number" th:field="*{id}"/>
+                        <span th:if="${#fields.hasErrors('id')}"
+                              th:errors="*{id}"></span><br />
+                        Name:<input type="text" th:field="*{name}" />
+                        <span th:if="${#fields.hasErrors('name')}"
+                              th:errors="*{name}"></span><br />
+                        Type:<input type="text" th:field="*{type}" />
+                        <span th:if="${#fields.hasErrors('type')}"
+                              th:errors="*{type}"></span><br />
+                        Description:<textarea rows="3" th:field="*{description}"></textarea>
+                        <span th:if="${#fields.hasErrors('description')}"
+                              th:errors="*{description}"></span><br />
+                        <input type="submit" value="Submit"/>
+
+                    </form>
+                    </div>
+
+                <h3>Free Show Database &amp; Cool Things</h3>
+                <br>
+            </div>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+
+        </div>
+    </header>
+
+</body>
+
 </html>
