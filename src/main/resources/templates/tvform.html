@@ -68,29 +68,91 @@
             <h3>Enter your TV show here</h3>
             <div>
                 <br>
-                    <div class="container">
-                    <!--here is where to insert the form or confirmation-->
+
+                <!--
+
                     <form action="#"
                           th:action="@{/tvform}"
                           th:object="${tvshow}"
                           method="post">
-
+                    <ul>
+                        <li>
                         Id:<input type="number" th:field="*{id}"/>
                         <span th:if="${#fields.hasErrors('id')}"
                               th:errors="*{id}"></span><br />
+                        </li>
+                        <li>
+
                         Name:<input type="text" th:field="*{name}" />
                         <span th:if="${#fields.hasErrors('name')}"
                               th:errors="*{name}"></span><br />
+                        </li>
+                        <li>
                         Type:<input type="text" th:field="*{type}" />
                         <span th:if="${#fields.hasErrors('type')}"
                               th:errors="*{type}"></span><br />
+                        </li>
+                        <li>
                         Description:<textarea rows="3" th:field="*{description}"></textarea>
                         <span th:if="${#fields.hasErrors('description')}"
                               th:errors="*{description}"></span><br />
+                        </li>
+                    </ul>
                         <input type="submit" value="Submit"/>
 
                     </form>
-                    </div>
+                    </div> -->
+                <div>
+
+                    <form class="well form-horizontal" th:action="@{/tvform}" method="post"  th:object="${tvshow}">
+                        <fieldset>
+
+                            <!-- Form Name -->
+                            <legend>Contact Us Today!</legend>
+
+                           <div th:if="${#fields.hasErrors('id')}" th:text="*{id}" class="well alert alert-danger" role="alert"> You must enter a valid id</div><br/>
+                            <!-- Text input-->
+
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label">First Name</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input  th:field="*{id}" name="first_name" placeholder="Enter your ID" class="form-control"  type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div th:if="${#fields.hasErrors('name')}" th:text="*{name}" class="well alert alert-danger" role="alert"> You must enter a valid id</div><br/>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" >Last Name</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Success message -->
+                            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> You must enter a valid id</div>
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div><!-- /.container -->
+
 
                 <h3>Free Show Database &amp; Cool Things</h3>
                 <br>
